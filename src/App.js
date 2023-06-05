@@ -1,14 +1,23 @@
-
-import { useSelector } from 'react-redux';
+import React from 'react'
 import './App.css';
-import { Login } from './Components/Login';
-import { Logout } from './Components/Logout';
-import { selectUser} from './app/slice'
+import { Create } from './Components/Create';
+import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
+import {Data} from './Components/Data'
+
+
 
 function App() {
-  const user=useSelector(selectUser);
+ 
   return (
-    <div className="App">{user ? <Logout/>:<Login/> }</div>
+    <div className="App">
+    <Router>
+    <Routes>
+    <Route path="/" element={<Create/>} />
+    <Route path="/data" element={<Data/>}/>
+    
+    </Routes>
+    </Router>
+    </div>
   );
 }
 
